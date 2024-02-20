@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
@@ -75,16 +76,17 @@ class RestaurantTest {
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	/*
-	 * This is a failing test case which still does not have the calculateOrderCost
-	 * method implemented. Failing test case only outlines the input parameter type
-	 * which is list of <String> and the orderCost which would be of type int.
+	 * Passing Test Case : Updated the TDD test case to read menu items names from
+	 * mocked restaurant object. Now , the implemented method for calculateOrderCost
+	 * gives back the total cost of the order.
 	 */
 
 	@Test
 	public void selecting_items_from_menu_should_return_total_order_cost() {
 		int orderCost;
-		List<String> selectedItems = null;
+		List<String> selectedItems = restaurant.getMenu().stream().map(Item::getName).collect(Collectors.toList());
 		orderCost = restaurant.calculateOrderCost(selectedItems);
+		assertEquals(388, orderCost);
 	}
 
 	// <<<<<<<<<<<<<<<<<<<<<<<ORDER COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
