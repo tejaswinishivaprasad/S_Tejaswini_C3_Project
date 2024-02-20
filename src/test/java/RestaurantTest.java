@@ -7,6 +7,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
@@ -71,4 +72,20 @@ class RestaurantTest {
 		assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
 	}
 	// <<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+	// >>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	/*
+	 * This is a failing test case which still does not have the calculateOrderCost
+	 * method implemented. Failing test case only outlines the input parameter type
+	 * which is list of <String> and the orderCost which would be of type int.
+	 */
+
+	@Test
+	public void selecting_items_from_menu_should_return_total_order_cost() {
+		int orderCost;
+		List<String> selectedItems = null;
+		orderCost = restaurant.calculateOrderCost(selectedItems);
+	}
+
+	// <<<<<<<<<<<<<<<<<<<<<<<ORDER COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
